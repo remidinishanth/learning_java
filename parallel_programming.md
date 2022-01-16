@@ -59,3 +59,6 @@ students.stream()
 ```
 
 From the viewpoint of this course, an important benefit of using Java  streams when possible is that the  pipeline can be made to execute in parallel by designating the source to be a parallel stream, i.e., by simply replacing `students.stream()` in the above code by `students.parallelStream()` or `Stream.of(students).parallel()`. This form of functional parallelism is a major convenience for the programmer, since they do not need to worry about explicitly allocating intermediate collections (e.g., a collection of all active students), or about ensuring that parallel accesses to data collections are  properly synchronized.
+
+#### Determinism and Data Races
+A parallel program is said to be functionally deterministic if it always computes the same answer when given the same input, and structurally deterministic if it always computes the same computation graph, when given the same input. The presence of data races often leads to functional and/or structural nondeterminism because a parallel program with data races may exhibit different behaviors for the same input, depending on the relative scheduling and timing of memory accesses involved in a data race. In general, the absence of data races is not sufficient to guarantee determinism.
