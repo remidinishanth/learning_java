@@ -47,7 +47,7 @@ Some key differences between future tasks and regular tasks in the Java’s Fork
 * REF: https://stackoverflow.com/questions/50817843/difference-between-recursive-task-and-recursive-action-in-forkjoinpool
 
 
-### 2 Functional Parallelism - Java Streams
+### Functional Parallelism - Java Streams
 
 Lecture Summary: Let's see how Java streams provide  a  functional approach to operating on collections of data. For example, the statement, `students.stream().forEach(s -> System.out.println(s));`, is a succinct way of specifying an action to be performed on each element `s` in the collection, students.  An aggregate data query or data transformation can be specified by  building a stream  pipeline consisting of a source (typically by  invoking the `.stream()` method on a data collection, a sequence of intermediate operations such as `map()` and `filter()`, and an optional terminal operation such as `forEach()` or `average()`.  As an example, the following pipeline can be used to compute the average age of all active  students using Java streams:
 
