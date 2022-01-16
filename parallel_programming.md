@@ -23,7 +23,7 @@
 * Using the JDK's performance profiler: http://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/
 
 
-### Difference between recursive task and recursive action in ForkJoinPool
+### Difference between RecursiveTask and RecursiveAction in ForkJoinPool
 * `RecursiveTask` returns a value, `RecursiveAction` doesn't. It's like `Task` vs `Runnable`.
 * Although technically, `RecursiveAction` does return a value, it's just always null, because it's a `ForkJoinTask<Void>`, and that's the only possible value of Void.
 * REF: https://stackoverflow.com/questions/50817843/difference-between-recursive-task-and-recursive-action-in-forkjoinpool
