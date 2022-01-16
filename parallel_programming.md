@@ -31,6 +31,24 @@
 * Using the JDK's performance profiler: http://docs.oracle.com/javase/7/docs/technotes/guides/visualvm/
 
 
+### async and finish API
+* `async` contains the API for executing a Java 8 lambda asynchronously. For example,
+
+```java
+async(() -> {S1; ...});
+```
+spawns a new child task to execute statements S1, ... asynchronously.
+
+* finish contains the API for executing a Java 8 lambda in a finish scope. For example,
+
+```java
+finish(() -> {S1; ...});
+```
+
+executes statements S1, ..., but waits until all (transitively) spawned asyncs in the statements’ scope
+have terminated.
+
+
 ###  Creating Future  Tasks  in Java’s  Fork/Join Framework
 
 Some key differences between future tasks and regular tasks in the Java’s Fork/Join (FJ) framework are as follows:
