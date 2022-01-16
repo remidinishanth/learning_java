@@ -45,3 +45,17 @@ Some key differences between future tasks and regular tasks in the Java’s Fork
 * `RecursiveTask` returns a value, `RecursiveAction` doesn't. It's like `Task` vs `Runnable`.
 * Although technically, `RecursiveAction` does return a value, it's just always null, because it's a `ForkJoinTask<Void>`, and that's the only possible value of Void.
 * REF: https://stackoverflow.com/questions/50817843/difference-between-recursive-task-and-recursive-action-in-forkjoinpool
+
+
+### 2 Functional Parallelism - Java Streams
+
+Lecture Summary: Let's see how Java streams provide  a  functional approach to operating on collections of data. For example, the statement, `students.stream().forEach(s -> System.out.println(s));`, is a succinct way of specifying an action to be performed on each element `s` in the collection, students.  An aggregate data query or data transformation can be specified by  building a stream  pipeline consisting of a source (typically by  invoking the `.stream()` method on a data collection, a sequence of intermediate operations such as `map()` and `filter()`, and an optional terminal operation such as `forEach()` or `average()`.  As an example, the following pipeline can be used to compute the average age of all active  students using Java streams:
+
+```java
+students.stream()
+    .filter(s -> s.getStatus() == Student.ACTIVE)
+    .mapToInt(a -> a.getAge())
+    .average();
+```
+
+From the viewpoint of this course, an important benefit of using Java  streams when possible is that the  pipeline can be made to execute in parallel by designating the source to be a parallel stream, i.e., by simply replacing `students.stream()` in the above code by `students.parallelStream()` or `Stream.of(students).parallel()`. This form of functional parallelism is a major convenience for the programmer, since they do not need to worry about explicitly allocating intermediate collections (e.g., a collection of all active students), or about ensuring that parallel accesses to data collections are  properly synchronized.
