@@ -1,3 +1,11 @@
+## Outline
+
+* Theory of parallelism: work, span, Amdahl’s Law, weak vs. strong scaling, data races, determinism
+* Task parallelism using Java’s ForkJoin framework
+* Functional parallelism using Java’s Future interface
+* Loop-level parallelism using Java 8 Streams
+* Dataflow parallelism using data-driven tasks
+
 ## Resources:
 
 * Java 8 Javadocs: https://docs.oracle.com/javase/8/docs/api/
